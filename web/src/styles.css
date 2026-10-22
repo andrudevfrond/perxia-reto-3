@@ -1,0 +1,168 @@
+:root {
+  color-scheme: light;
+  --paper: #f3efe6;
+  --panel: #fffdf8;
+  --ink: #1c2430;
+  --muted: #5c6570;
+  --line: #e2d9cc;
+  --forest: #1e4a3a;
+  --forest-soft: #e7f2ec;
+  --amber: #8a5a12;
+  --amber-soft: #fff4dc;
+  --clay: #8d2f2f;
+  --clay-soft: #fdecea;
+  --shadow: 0 16px 40px rgba(40, 32, 22, 0.08);
+  font-family: "Segoe UI", "Source Sans 3", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(196, 161, 90, 0.18), transparent 28rem),
+    var(--paper);
+  color: var(--ink);
+}
+
+button, textarea { font: inherit; }
+
+.app {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 100vh;
+}
+
+.rail {
+  padding: 28px 22px;
+  border-right: 1px solid var(--line);
+  background: rgba(255, 253, 248, 0.72);
+}
+
+.brand {
+  font-family: Georgia, "Source Serif 4", serif;
+  font-size: 28px;
+  line-height: 1.05;
+  margin: 0 0 8px;
+}
+
+.brand span { display: block; color: var(--forest); }
+
+.lede, .status, .hint { color: var(--muted); }
+
+.lede { margin: 0 0 22px; line-height: 1.45; }
+
+.casos { display: grid; gap: 8px; }
+
+.casos button, .enviar, .confirmar button {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--ink);
+  border-radius: 12px;
+  padding: 10px 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.casos button strong { display: block; }
+.casos button small { color: var(--muted); }
+
+.casos button:hover, .enviar:hover, .confirmar button:hover { border-color: var(--forest); }
+
+.main { display: flex; flex-direction: column; min-width: 0; }
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: end;
+  padding: 22px 28px 8px;
+}
+
+.top h2 { margin: 0; font-family: Georgia, serif; font-weight: 500; }
+
+.historial {
+  flex: 1;
+  overflow: auto;
+  padding: 12px 28px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.burbuja {
+  max-width: 760px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  white-space: pre-wrap;
+  line-height: 1.45;
+}
+
+.burbuja.user { align-self: flex-end; background: var(--forest); color: #f7f4ef; }
+
+.aviso {
+  border: 1px solid #efd7a4;
+  background: var(--amber-soft);
+  color: var(--amber);
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-weight: 650;
+}
+
+.tools { display: grid; gap: 8px; margin-bottom: 10px; }
+
+.tool {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 8px 10px;
+  background: #fbf8f2;
+}
+
+.tool summary { cursor: pointer; display: flex; justify-content: space-between; gap: 12px; }
+.tool.ok summary { color: var(--forest); }
+.tool.bad summary { color: var(--clay); }
+.tool pre {
+  margin: 8px 0 0;
+  overflow: auto;
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+.pensando { color: var(--forest); font-weight: 650; }
+
+.composer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  padding: 0 28px 22px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 74px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  padding: 12px 14px;
+  background: var(--panel);
+  color: var(--ink);
+}
+
+.enviar {
+  background: var(--forest);
+  color: white;
+  border-color: var(--forest);
+  min-width: 112px;
+}
+
+.enviar:disabled, .casos button:disabled, .confirmar button:disabled { opacity: 0.55; cursor: wait; }
+
+.confirmar { display: flex; gap: 8px; padding: 0 28px 12px; }
+.confirmar button.si { background: var(--forest); color: white; border-color: var(--forest); }
+
+@media (max-width: 860px) {
+  .app { grid-template-columns: 1fr; }
+  .rail { border-right: 0; border-bottom: 1px solid var(--line); }
+}
