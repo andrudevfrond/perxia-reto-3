@@ -1,0 +1,23 @@
+# Dependencias y build
+node_modules/
+dist/
+web/dist/
+*.tsbuildinfo
+.vite/
+
+# Salida de ejecución (SAP simulado, evidencia, control, logs, sesiones)
+out/
+
+# Secretos. .env.example sí se versiona.
+.env
+.env.*
+!.env.example
+
+# Sistema y editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.log
+.idea/
+.vscode/
+.cursor/
